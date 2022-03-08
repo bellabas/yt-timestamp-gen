@@ -25,7 +25,7 @@ from mutagen.wave import WAVE
 from mutagen.wavpack import WavPack
 
 
-class YTtimestamps:
+class YTtimestamp:
     def __init__(self, path, isNum):
         self.path = path + "\*"
         self.filePaths = glob(self.path)
@@ -163,5 +163,5 @@ if isNum.lower() == "y":
     isNum = True
 else:
     isNum = False
-MyYTtimestamps = YTtimestamps(path, isNum)
-MyYTtimestamps.Run()
+MyYTtimestamp = YTtimestamp(path, isNum)
+MyYTtimestamp.Run()

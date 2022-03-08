@@ -1,4 +1,4 @@
-# yt-timestamps-gen
+# yt-timestamp-gen
 Create a lists of cumulated timestamps out of audio files from one directory using the Mutagen Python library. What you can easily paste afterwards to your description box on Youtube. There is an option to turn on enumeration for tracks in case the filenames do not start with numbering. It is a simple console application.
 
 ## Usage:

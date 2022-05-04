@@ -138,22 +138,25 @@ class YTtimestamp:
         hh_mm_ss = "00:00"
         num = 0
         for filePath in self.filePaths:
-            classTree = self.FindClass(filePath)
-            if classTree != "NoneType":
-                fileName = self.FindFilename(filePath)
-                if self.isNum:
-                    num += 1
-                    sNum = self.ToTwoDigitString(num)
-                    print(f"{sNum}. {fileName} - {hh_mm_ss}", file=self.output)
-                else:
-                    print(f"{fileName} - {hh_mm_ss}", file=self.output)
-                audio = self.MakeAudioObj(classTree, filePath)
-                if audio != False:
-                    timeStamp += audio.info.length
-                    hh_mm_ss = self.TimeCalc(timeStamp)
-                else:
-                    print("An error occurred during the file length getting!",
-                          file=self.output)
+            try:
+                classTree = self.FindClass(filePath)
+                if classTree != "NoneType":
+                    fileName = self.FindFilename(filePath)
+                    if self.isNum:
+                        num += 1
+                        sNum = self.ToTwoDigitString(num)
+                        print(f"{sNum}. {fileName} - {hh_mm_ss}", file=self.output)
+                    else:
+                        print(f"{fileName} - {hh_mm_ss}", file=self.output)
+                    audio = self.MakeAudioObj(classTree, filePath)
+                    if audio != False:
+                        timeStamp += audio.info.length
+                        hh_mm_ss = self.TimeCalc(timeStamp)
+                    else:
+                        print("An error occurred during the file length getting!",
+                            file=self.output)
+            except Exception:
+                print("Folder found!")
         self.output.close()
 
 
